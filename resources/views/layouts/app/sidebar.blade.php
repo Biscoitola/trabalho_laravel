@@ -11,24 +11,26 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
+                <flux:sidebar.group :heading="__('Menu')" class="grid">
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="clipboard-document-list" :href="route('tarefas.index')" :current="request()->routeIs('tarefas.*')" wire:navigate>
+                        {{ __('Tarefas') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="folder" :href="route('categorias.index')" :current="request()->routeIs('categorias.*')" wire:navigate>
+                        {{ __('Categorias') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="flag" :href="route('prioridades.index')" :current="request()->routeIs('prioridades.*')" wire:navigate>
+                        {{ __('Prioridades') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="check-circle" :href="route('status.index')" :current="request()->routeIs('status.*')" wire:navigate>
+                        {{ __('Status') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
             <flux:spacer />
-
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
-
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
-            </flux:sidebar.nav>
 
             <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
         </flux:sidebar>
@@ -66,7 +68,7 @@
 
                     <flux:menu.radio.group>
                         <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>
-                            {{ __('Settings') }}
+                            {{ __('Configuracoes') }}
                         </flux:menu.item>
                     </flux:menu.radio.group>
 
@@ -81,7 +83,7 @@
                             class="w-full cursor-pointer"
                             data-test="logout-button"
                         >
-                            {{ __('Log out') }}
+                            {{ __('Sair') }}
                         </flux:menu.item>
                     </form>
                 </flux:menu>

@@ -11,7 +11,36 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->text('descricao')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('prioridades', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->timestamps();
+        });
+
+        Schema::create('statuses', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->timestamps();
+        });
+
+        Schema::create('tarefas', function (Blueprint $table) {
+            $table->id();
+            $table->string('titulo');
+            $table->text('descricao')->nullable();
+            $table->date('data_limite')->nullable();
+            $table->foreignId('id_categoria')->constrained('categorias')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('id_prioridade')->constrained('prioridades')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('id_status')->constrained('statuses')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +48,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tarefas');
+        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('prioridades');
+        Schema::dropIfExists('categorias');
     }
 };
