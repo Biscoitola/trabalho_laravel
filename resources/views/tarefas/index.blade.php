@@ -5,7 +5,6 @@
             <a href="{{ route('tarefas.create') }}" class="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white dark:bg-white dark:text-zinc-900">Nova tarefa</a>
         </div>
 
-        @if (session('success')) <div class="rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">{{ session('success') }}</div> @endif
         @if (session('error')) <div class="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{{ session('error') }}</div> @endif
 
         <form method="GET" action="{{ route('tarefas.index') }}" class="grid gap-3 rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900 md:grid-cols-[1fr_220px_auto]">

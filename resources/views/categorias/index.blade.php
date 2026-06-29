@@ -5,7 +5,6 @@
             <a href="{{ route('categorias.create') }}" class="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white dark:bg-white dark:text-zinc-900">Nova categoria</a>
         </div>
 
-        @if (session('success')) <div class="rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">{{ session('success') }}</div> @endif
         @if (session('error')) <div class="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{{ session('error') }}</div> @endif
 
         <div class="overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700">
